@@ -362,6 +362,7 @@ static NSString *const timedMetadata = @"timedMetadata";
 
         NSObject *width = @"undefined";
         NSObject *height = @"undefined";
+        NSObject *fps = @"undefined";
         NSString *orientation = @"undefined";
 
         if ([_playerItem.asset tracksWithMediaType:AVMediaTypeVideo].count > 0) {
