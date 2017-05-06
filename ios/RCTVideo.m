@@ -368,6 +368,7 @@ static NSString *const timedMetadata = @"timedMetadata";
           AVAssetTrack *videoTrack = [[_playerItem.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
           width = [NSNumber numberWithFloat:videoTrack.naturalSize.width];
           height = [NSNumber numberWithFloat:videoTrack.naturalSize.height];
+          fps = [NSNumber numberWithFloat:videoTrack.nominalFrameRate];
           CGAffineTransform preferredTransform = [videoTrack preferredTransform];
 
           if ((videoTrack.naturalSize.width == preferredTransform.tx
@@ -391,7 +392,8 @@ static NSString *const timedMetadata = @"timedMetadata";
                              @"naturalSize": @{
                                      @"width": width,
                                      @"height": height,
-                                     @"orientation": orientation
+                                     @"orientation": orientation,
+                                     @"fps": fps,
                                      },
                              @"target": self.reactTag});
       }
